@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const { staffRoles } = require('../config.json');
+const { staffRoles, serverId } = require('../config.json');
 
 const sequelize = new Sequelize('database', 'user', 'password', {
 	host: 'localhost',
@@ -18,7 +18,7 @@ module.exports = {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
 
 		// Checking all users with staff roles.
-		client.guilds.cache.get('657879654530678785').fetch().then((guild) => {
+		client.guilds.cache.get(serverId).fetch().then((guild) => {
 			guild.members.fetch().then((members) => {
 				members.forEach(async (member) => {
 					if (member.roles.cache.some(role => staffRoles.includes(role.id))) {

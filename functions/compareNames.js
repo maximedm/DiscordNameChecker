@@ -36,7 +36,6 @@ module.exports.compareNames = async function(user) {
 		}
 		else {
 			console.log(user.username + ' Might copy a staff member name.');
-			index.sendmessage('<@' + user.id + '> (' + user.username + ') Might copy a staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
 		}
 	}
 	else {
