@@ -1,5 +1,6 @@
 {
 	"token": "your-token-goes-here",
+	"logChannel": "channel-id",
 	"staffRoles": [
         "role-id-1",
         "role-id-2"
