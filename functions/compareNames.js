@@ -27,16 +27,16 @@ module.exports.compareNames = async function(user) {
 		if (userCheck.distance > 0.6) {
 			if (userCheck.distance > 0.8) {
 				console.log(user.username + 'Is definetly copying staff member name.');
-				index.sendmessage('657879654530678788', '<@' + user.id + '> (' + user.username + ') Is definetly copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
+				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is definetly copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
 			}
 			else {
 				console.log(user.username + 'Is most likely copying staff member name.');
-				index.sendmessage('657879654530678788', '<@' + user.id + '> (' + user.username + ') Is most likely copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
+				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is most likely copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
 			}
 		}
 		else {
 			console.log(user.username + ' Might copy a staff member name.');
-			index.sendmessage('657879654530678788', '<@' + user.id + '> (' + user.username + ') Might copy a staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
+			index.sendmessage('<@' + user.id + '> (' + user.username + ') Might copy a staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
 		}
 	}
 	else {
