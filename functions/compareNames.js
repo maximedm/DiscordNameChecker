@@ -1,6 +1,7 @@
 const FuzzyMatching = require('fuzzy-matching');
 const Sequelize = require('sequelize');
 const index = require('../index.js');
+const moment = require('moment');
 
 const sequelize = new Sequelize('database', 'user', 'password', {
 	host: 'localhost',
@@ -20,6 +21,7 @@ module.exports.compareNames = async function(user) {
 		fuzzyArray.push(staffMember.username);
 	});
 
+
 	const fm = new FuzzyMatching(fuzzyArray);
 	const userCheck = fm.get(user.username);
 	console.log('CompareNames', userCheck);
@@ -27,11 +29,11 @@ module.exports.compareNames = async function(user) {
 		if (userCheck.distance > 0.6) {
 			if (userCheck.distance > 0.8) {
 				console.log(user.username + 'Is definetly copying staff member name.');
-				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is definetly copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
+				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is definetly copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] <t:' + moment().unix() + '>');
 			}
 			else {
 				console.log(user.username + 'Is most likely copying staff member name.');
-				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is most likely copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ]');
+				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is most likely copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] <t:' + moment().unix() + '>');
 			}
 		}
 		else {
