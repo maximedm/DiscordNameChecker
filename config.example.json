@@ -1,3 +1,7 @@
 {
-	"token": "your-token-goes-here"
+	"token": "your-token-goes-here",
+	"staffRoles": [
+        "role-id-1",
+        "role-id-2"
+    ]
 }
