@@ -29,11 +29,14 @@ module.exports.compareNames = async function(user) {
 		if (userCheck.distance > 0.6) {
 			if (userCheck.distance > 0.8) {
 				console.log(user.username + 'Is definetly copying staff member name.');
-				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is definetly copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] <t:' + moment().unix() + '>');
+				index.sendmessage('@here <@' + user.id + '> (' + user.username + ') Is definetly copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] <t:' + moment().unix() + '>');
+				index.senddm(user.id, 'Please change your username it is close to impersonating our staff members. [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] with the name of ' + userCheck.value);
+				// index.banuser(user);
 			}
 			else {
 				console.log(user.username + 'Is most likely copying staff member name.');
-				index.sendmessage('<@' + user.id + '> (' + user.username + ') Is most likely copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] <t:' + moment().unix() + '>');
+				index.senddm(user.id, 'Please change your username it is close to impersonating our staff members. [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] with the name of ' + userCheck.value);
+				index.sendmessage('@here <@' + user.id + '> (' + user.username + ') Is most likely copying staff member name of ' + userCheck.value + ' [ **' + (userCheck.distance * 100).toFixed(2) + '% match** ] <t:' + moment().unix() + '>');
 			}
 		}
 		else {
